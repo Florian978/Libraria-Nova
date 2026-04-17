@@ -1,0 +1,312 @@
+/* --- 1. DEFINIRE VARIABILE (Schema Cromatica) --- */
+body {
+    --culoare-fundal: #F4F4F9;
+    --culoare-text: #2D2D2D;
+    --culoare-principala: #1A2238;
+    --culoare-accent: #FFD700;
+    --culoare-borduri: #9DAAF2;
+    --spatiere-celule: 20px;
+
+    background-color: var(--culoare-fundal);
+    color: var(--culoare-text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    transition: font-size 0.5s ease; /* Tranzitie ceruta */
+}
+
+/* --- 2. HEADER SI NAVIGARE --- */
+header {
+    background-color: var(--culoare-principala);
+    color: white;
+    padding: 1.5rem;
+    border-bottom: 4px solid var(--culoare-accent);
+}
+
+header h1 {
+    color: var(--culoare-accent);
+    margin: 0 0 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li ul {
+    display: none; /* Submeniu simplu pentru moment */
+}
+
+/* --- 3. LAYOUT GRID (Design Rudimentar si Responsivitate) --- */
+main {
+    max-width: 1200px;
+    margin: 30px auto; /* Centrare pagina */
+    padding: 0 20px;   /* Aerisire laterala paginii */
+}
+
+.grid-container {
+    display: grid;
+    gap: var(--spatiere-celule); /* Folosire gap */
+}
+
+/* Desktop */
+@media screen and (min-width: 1025px) {
+    html { font-size: 18px; }
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "z1 z1 z1 z1"
+            "z5 z6 z6 z7"
+            "z3 z3 z2 z2"
+            "z4 z4 z2 z2"
+            "z8 z8 z8 z8";
+    }
+}
+
+/* Tableta (Ecran Mediu) */
+@media screen and (min-width: 701px) and (max-width: 1024px) {
+    html { font-size: 17px; }
+    .grid-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "z1 z1"
+            "z3 z2"
+            "z4 z2"
+            "z5 z6"
+            "z7 z8";
+    }
+}
+
+/* Mobil (Ecran Mic) */
+@media screen and (max-width: 700px) {
+    html { font-size: 15px; }
+    .grid-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* Atribuire zone */
+.zona-1 { grid-area: z1; }
+.zona-2 { grid-area: z2; }
+.zona-3 { grid-area: z3; }
+.zona-4 { grid-area: z4; }
+.zona-5 { grid-area: z5; }
+.zona-6 { grid-area: z6; }
+.zona-7 { grid-area: z7; }
+.zona-8 { grid-area: z8; }
+
+/* --- 4. STILIZARE ZONE (Design Rudimentar cerinte c, d, e) --- */
+/* Lipește acest cod la sfârșitul fișierului stil.css */
+
+/* --- REPLICARE EXACTA VIDEOCLIP (TABURI JOS) --- */
+.container-iframe {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 100%;
+}
+
+.container-iframe iframe {
+    width: 100%;
+    max-width: 600px; 
+    height: 350px;
+    border: 4px solid var(--culoare-borduri);
+    border-bottom: none; /* Se lipeste de butoane */
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.taburi-iframe {
+    display: flex; 
+    width: 100%;
+    max-width: 600px;
+    justify-content: center;
+}
+
+.taburi-iframe a {
+    flex: 1; 
+    text-align: center;
+    padding: 10px 5px;
+    background-color: var(--culoare-principala);
+    color: white;
+    text-decoration: none;
+    border: 2px solid var(--culoare-borduri);
+    border-radius: 0 0 15px 15px; /* Rotunjire doar jos */
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.taburi-iframe a:hover {
+    background-color: var(--culoare-accent);
+    color: var(--culoare-principala);
+    padding-top: 15px; /* Efectul de coborare/marire la hover */
+}
+
+/* Elemente Media Responsive (Cerinta e) */
+img, iframe {
+    width: 100%;
+    max-width: 100%;
+    min-width: 250px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* --- STILIZARE TABEL FINALA (CERINTA 4 REPARATA) --- */
+
+.container-tabel {
+    overflow-x: auto;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+caption {
+    caption-side: bottom;
+    padding: 10px;
+    font-style: italic;
+    color: var(--culoare-principala);
+}
+
+/* Borduri groase intre sectiuni */
+thead { border-bottom: 3px solid var(--culoare-principala); }
+tfoot { border-top: 3px solid var(--culoare-principala); }
+
+/* --- REPARARE CULORI ALTERNATE (folosind coloanele) --- */
+
+/* Linia dintre Col 1-2 si Col 3-4 (c1) */
+.coloana-impara {
+    border-right: 2px solid var(--culoare-borduri);
+}
+
+/* Linia dintre Col 2-3 (c2) */
+.coloana-para {
+    border-right: 2px solid var(--culoare-accent);
+}
+
+/* Eliminam bordura de pe ultima coloana a tabelului */
+col:last-child {
+    border-right: none;
+}
+
+/* Stil general celule (fara borduri laterale individuale) */
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid var(--culoare-borduri);
+    background-color: transparent; /* Permite umbrei de pe rand sa se vada */
+}
+
+th {
+    background-color: var(--culoare-principala);
+    color: white;
+}
+
+/* 5. Efect Box-Shadow corectat pentru interactiunea cu rowspan */
+table tbody tr td {
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Regula standard: cand dam hover pe un rand, celulele lui se coloreaza */
+table tbody tr:hover td {
+    box-shadow: inset 0 0 10px 2px rgba(26, 34, 56, 0.5);
+    background-color: rgba(255, 215, 0, 0.1);
+    cursor: pointer;
+}
+
+/* SOLUTIA PENTRU VINERI: 
+   Daca rândul urmator (Vineri) are hover, stilizeaza celula cu rowspan din rândul anterior */
+table tbody tr:has(+ tr:hover) td[rowspan] {
+    box-shadow: inset 0 0 10px 2px rgba(26, 34, 56, 0.5);
+    background-color: rgba(255, 215, 0, 0.1);
+}
+
+/* Pentru celulele cu rowspan, ne asiguram ca umbra parintelui se vede prin ele */
+td[rowspan] {
+    background-color: white; 
+}
+
+table tbody tr:hover td[rowspan] {
+    background-color: rgba(255, 215, 0, 0.05);
+}
+
+/* --- STILIZARE BUTON LINK-TOP (CERINTA 5) --- */
+
+#link-top {
+    position: fixed;
+    bottom: 30px; /* Puțin mai sus de margine */
+    right: 30px;
+    display: block;
+    width: 60px;
+    height: 60px;
+    text-decoration: none;
+    z-index: 1000; /* Peste tot conținutul */
+    
+    /* Transparenta si tranzitie (Cerinta f si b) */
+    opacity: 0.5;
+    transition: all 0.5s ease;
+    
+    /* --- NOU: Umbră externă pronunțată (Drop Shadow) --- */
+    /* Parametri: deplasare-x, deplasare-y, blur, raspandire, culoare */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); 
+    border-radius: 50%; /* Umbra trebuie să urmeze forma rotundă */
+}
+
+#triunghi-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--culoare-fundal);
+    border: 4px solid var(--culoare-principala);
+    border-radius: 50%; /* Rotund */
+    
+    /* Aliniere triunghi in centru cu Flexbox */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Culoare și dimensiune triunghi special (Cerinta a) */
+    color: var(--culoare-principala);
+    font-size: 30px;
+    font-weight: bold;
+    
+    /* Asigurăm că fundalul containerului nu acoperă umbra părintelui */
+    box-sizing: border-box; 
+}
+
+/* Interactivitate la hover (Cerinta b, c, f) */
+#link-top:hover {
+    opacity: 1; /* Devine opac */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Umbra crește la hover pentru efect de "ridicare" */
+}
+
+#link-top:hover #triunghi-container {
+    /* Schimbam background-ul (se întunecă - Cerinta c) */
+    background-color: var(--culoare-borduri); 
+    transform: scale(1.05); /* Mic feedback vizual */
+}
+
+/* --- 5. FOOTER --- */
+footer {
+    background-color: var(--culoare-principala);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer a {
+    color: var(--culoare-accent);
+}
