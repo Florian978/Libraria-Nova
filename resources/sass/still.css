@@ -1,0 +1,669 @@
+@charset "UTF-8";
+/* --- 1. DEFINIRE VARIABILE (Schema Cromatica) --- */
+body {
+  --culoare-fundal: #F4F4F9;
+  --culoare-text: #2D2D2D;
+  --culoare-principala: #1A2238;
+  --culoare-accent: #FFD700;
+  --culoare-borduri: #9DAAF2;
+  --spatiere-celule: 20px;
+  --spatiere-pagina: 5%;
+  --padding-zone: 20px;
+  /* Aplicăm spațierea stânga-dreapta */
+  padding: 0 var(--spatiere-pagina);
+  box-sizing: border-box; /* Foarte important pentru a nu apărea scroll orizontal */
+  background-color: var(--culoare-fundal);
+  color: var(--culoare-text);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  transition: font-size 0.5s ease; /* Tranzitie ceruta */
+}
+
+/* --- 3. LAYOUT GRID (Design Rudimentar si Responsivitate) --- */
+main {
+  width: 100%;
+  margin: 30px 0; /* Centrare pagina */
+  padding: 0 20px; /* Aerisire laterala paginii */
+}
+
+.grid-container {
+  display: grid;
+  gap: var(--spatiere-celule);
+}
+
+/* Desktop */
+@media screen and (min-width: 1025px) {
+  body {
+    --spatiere-pagina: 8%;
+  }
+  html {
+    font-size: 18px;
+  }
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "z1 z1 z1 z1" "z5 z6 z6 z7" "z3 z3 z2 z2" "z4 z4 z2 z2" "z8 z8 z8 z8";
+  }
+}
+/* Tableta (Ecran Mediu) */
+@media screen and (min-width: 701px) and (max-width: 1024px) {
+  body {
+    --spatiere-pagina: 4%;
+  }
+  html {
+    font-size: 17px;
+  }
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "z1 z1" "z3 z2" "z4 z2" "z5 z6" "z7 z8";
+  }
+}
+/* Mobil (Ecran Mic) */
+@media screen and (max-width: 700px) {
+  body {
+    --spatiere-pagina: 10px;
+  }
+  html {
+    font-size: 15px;
+  }
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* Atribuire zone */
+.zona-1 {
+  grid-area: z1;
+}
+
+.zona-2 {
+  grid-area: z2;
+}
+
+.zona-3 {
+  grid-area: z3;
+}
+
+.zona-4 {
+  grid-area: z4;
+}
+
+.zona-5 {
+  grid-area: z5;
+}
+
+.zona-6 {
+  grid-area: z6;
+}
+
+.zona-7 {
+  grid-area: z7;
+}
+
+.zona-8 {
+  grid-area: z8;
+}
+
+/* --- 4. STILIZARE ZONE (Design Rudimentar cerinte c, d, e) --- */
+/* --- VIDEOCLIP (TABURI JOS) --- */
+.container-iframe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.container-iframe iframe {
+  width: 100%;
+  max-width: 600px;
+  height: 350px;
+  border: 4px solid var(--culoare-borduri);
+  border-bottom: none;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.taburi-iframe {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  justify-content: center;
+}
+
+.taburi-iframe a {
+  flex: 1;
+  text-align: center;
+  padding: 10px 5px;
+  background-color: var(--culoare-principala);
+  color: white;
+  text-decoration: none;
+  border: 2px solid var(--culoare-borduri);
+  border-radius: 0 0 15px 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
+
+.taburi-iframe a:hover {
+  background-color: var(--culoare-accent);
+  color: var(--culoare-principala);
+  padding-top: 15px;
+}
+
+/* Elemente Media Responsive (Cerinta e) */
+img, iframe {
+  width: 100%;
+  max-width: 100%;
+  min-width: 250px;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* --- STILIZARE TABEL (CERINTA 4) --- */
+.container-tabel {
+  overflow-x: auto;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+caption {
+  caption-side: bottom;
+  padding: 10px;
+  font-style: italic;
+  color: var(--culoare-principala);
+}
+
+/* Borduri groase intre sectiuni */
+thead {
+  border-bottom: 3px solid var(--culoare-principala);
+}
+
+tfoot {
+  border-top: 3px solid var(--culoare-principala);
+}
+
+/* Linia dintre Col 1-2 si Col 3-4 (c1) */
+.coloana-impara {
+  border-right: 2px solid var(--culoare-borduri);
+}
+
+/* Linia dintre Col 2-3 (c2) */
+.coloana-para {
+  border-right: 2px solid var(--culoare-accent);
+}
+
+/* Eliminam bordura de pe ultima coloana a tabelului */
+col:last-child {
+  border-right: none;
+}
+
+/* Stil general celule (fara borduri laterale individuale) */
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--culoare-borduri);
+  background-color: transparent; /* Permite umbrei de pe rand sa se vada */
+}
+
+th {
+  background-color: var(--culoare-principala);
+  color: white;
+}
+
+/* 5. Efect Box-Shadow corectat pentru interactiunea cu rowspan */
+table tbody tr td {
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Regula standard: cand dam hover pe un rand, celulele lui se coloreaza */
+table tbody tr:hover td {
+  box-shadow: inset 0 0 10px 2px rgba(26, 34, 56, 0.5);
+  background-color: rgba(255, 215, 0, 0.1);
+  cursor: pointer;
+}
+
+/* SOLUTIA PENTRU VINERI: 
+   Daca rândul urmator (Vineri) are hover, stilizeaza celula cu rowspan din rândul anterior */
+table tbody tr:has(+ tr:hover) td[rowspan] {
+  box-shadow: inset 0 0 10px 2px rgba(26, 34, 56, 0.5);
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+/* Pentru celulele cu rowspan, ne asiguram ca umbra parintelui se vede prin ele */
+td[rowspan] {
+  background-color: white;
+}
+
+table tbody tr:hover td[rowspan] {
+  background-color: rgba(255, 215, 0, 0.05);
+}
+
+/* --- STILIZARE BUTON LINK-TOP (CERINTA 5) --- */
+#link-top {
+  position: fixed;
+  bottom: 30px; /* Puțin mai sus de margine */
+  right: 30px;
+  display: block;
+  width: 60px;
+  height: 60px;
+  text-decoration: none;
+  z-index: 1000;
+  /* Transparenta si tranzitie (Cerinta f si b) */
+  opacity: 0.5;
+  transition: all 0.5s ease;
+  /* --- NOU: Umbră externă pronunțată (Drop Shadow) --- */
+  /* Parametri: deplasare-x, deplasare-y, blur, raspandire, culoare */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  border-radius: 50%; /* Umbra trebuie să urmeze forma rotundă */
+}
+
+#triunghi-container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--culoare-fundal);
+  border: 4px solid var(--culoare-principala);
+  border-radius: 50%; /* Rotund */
+  /* Aliniere triunghi in centru cu Flexbox */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Culoare și dimensiune triunghi special (Cerinta a) */
+  color: var(--culoare-principala);
+  font-size: 30px;
+  font-weight: bold;
+  /* Asigurăm că fundalul containerului nu acoperă umbra părintelui */
+  box-sizing: border-box;
+}
+
+/* Interactivitate la hover (Cerinta b, c, f) */
+#link-top:hover {
+  opacity: 1; /* Devine opac */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Umbra crește la hover pentru efect de "ridicare" */
+}
+
+#link-top:hover #triunghi-container {
+  /* Schimbam background-ul (se întunecă - Cerinta c) */
+  background-color: var(--culoare-borduri);
+  transform: scale(1.05); /* Mic feedback vizual */
+}
+
+/* --- 5. FOOTER --- */
+footer {
+  background-color: var(--culoare-principala);
+  color: white;
+  padding: 30px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+footer a {
+  color: var(--culoare-accent);
+}
+
+/* --- VARIABILE SASS (Conform cerinței) --- */
+/* --- MIXIN PENTRU SUB-LINIERE DUBLĂ (Punctul c) --- */
+/* --- STILIZARE NAVIGARE --- */
+nav {
+  background-color: var(--culoare-principala);
+  position: relative;
+  z-index: 100;
+  /* Checkbox-ul pentru Hamburger (ascuns) */
+}
+nav #ch-meniu {
+  display: none;
+}
+nav {
+  /* Label-ul Hamburger (vizibil doar pe mobil) */
+}
+nav .label-hamburger {
+  display: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 15px;
+  cursor: pointer;
+}
+nav {
+  /* Meniul Principal (Nesting) */
+}
+nav .meniu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+nav .meniu li {
+  position: relative;
+  flex: 1;
+}
+nav .meniu li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  padding: 0 20px;
+  height: 60px;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+}
+nav .meniu li a i {
+  margin-right: 8px;
+}
+nav .meniu li a {
+  /* --- EFECT DREPTUNGHI SUPRAPUS (Punctul a) --- */
+}
+nav .meniu li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 215, 0, 0.2);
+  border: 1px solid var(--culoare-accent);
+  box-shadow: inset 0 0 10px var(--culoare-accent);
+  z-index: -1;
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.4s ease;
+}
+nav .meniu li a:hover::before {
+  transform: scaleY(1);
+}
+nav .meniu li {
+  /* --- SUBMENIU (Punctul b) --- */
+}
+nav .meniu li .submeniu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background-color: var(--culoare-principala);
+  list-style: none;
+  padding: 0;
+  /* Scalare din colț stânga-sus */
+  transform: scale(0);
+  transform-origin: top left;
+  transition: transform 0.5s ease-in-out;
+  border: 1px solid var(--culoare-borduri);
+}
+nav .meniu li .submeniu li a {
+  justify-content: flex-start;
+  height: 45px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  /* --- SUBLINIERE DUBLĂ (Punctul c) --- */
+}
+nav .meniu li .submeniu li a::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  width: 0;
+  height: 4px;
+  border-top: 2px solid var(--culoare-accent);
+  border-bottom: 2px solid var(--culoare-accent);
+  transform: translateX(-50%);
+  transition: width 0.5s ease;
+  bottom: 2px;
+}
+nav .meniu li .submeniu li a:hover::after {
+  width: 80%;
+}
+nav .meniu li {
+  /* Apare submeniul la hover pe părinte */
+}
+nav .meniu li:hover .submeniu {
+  transform: scale(1);
+}
+
+/* --- ECRAN MEDIU (Responsive) --- */
+@media screen and (min-width: 701px) and (max-width: 1024px) {
+  nav .meniu li a {
+    font-size: 0.8rem;
+  }
+  nav .meniu li a span {
+    display: none;
+  }
+  nav .meniu li a { /* Doar iconițele raman */ }
+  nav .meniu li a i {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+}
+/* --- 7. ECRAN MIC (Animație Săgeți pe Fiecare Linie + Submeniuri Funcționale) --- */
+@media screen and (max-width: 700px) {
+  nav.nav-principala {
+    position: relative;
+    background: #1a2238 !important;
+  }
+  nav.nav-principala #ch-meniu {
+    display: none;
+  }
+  nav.nav-principala .label-hamburger {
+    display: block !important;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: white;
+    padding: 15px;
+    position: relative;
+    z-index: 1005; /* Valoare mare ca să poată fi mereu apăsat fără blocaje */
+  }
+  nav.nav-principala .meniu {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    background: transparent !important; /* Lăsăm containerul transparent, fundalul e pe linii */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    /* REZOLVARE CLICK: Când e închis, meniul devine complet „invizibil” pentru click-uri */
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+  nav.nav-principala .meniu li {
+    width: 100%;
+    display: block !important;
+    position: relative;
+    background-color: #1a2238;
+    margin-bottom: 2px; /* Separare fină între linii ca în clip */
+    height: auto !important; /* Permite extinderea rândului când apare submeniul */
+    /* STAREA INIȚIALĂ: Fiecare linie este strivită individual în stânga */
+    clip-path: polygon(0% 0%, 0% 0%, 0% 50%, 0% 100%, 0% 100%);
+  }
+  nav.nav-principala .meniu li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  nav.nav-principala .meniu li a.prima-optiune span {
+    display: none !important;
+  }
+  nav.nav-principala .meniu li a.prima-optiune i {
+    display: inline-block !important;
+    margin: 0;
+    font-size: 1.4rem;
+  }
+  nav.nav-principala .meniu li {
+    /* SUBMENIURILE PE MOBIL */
+  }
+  nav.nav-principala .meniu li .submeniu {
+    display: none !important;
+    width: 100%;
+    background-color: #111625 !important; /* Contrast mai închis */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative; /* Împinge restul liniilor în jos */
+  }
+  nav.nav-principala .meniu li .submeniu li {
+    background: transparent !important;
+    clip-path: none !important; /* Opțiunile din submeniu sunt dreptunghiuri simple */
+    margin: 0;
+  }
+  nav.nav-principala .meniu li .submeniu li a {
+    height: 45px !important;
+    border: none !important;
+    font-size: 0.95rem;
+  }
+  nav.nav-principala .meniu li {
+    /* HOVER PE MOBIL: Afișează submeniul */
+  }
+  nav.nav-principala .meniu li:hover .submeniu {
+    display: block !important;
+  }
+  nav.nav-principala {
+    /* --- DECLANȘAREA ANIMAȚIEI MULTI-SĂGEATĂ SIMULTANĂ --- */
+  }
+  nav.nav-principala #ch-meniu:checked ~ .meniu {
+    pointer-events: auto; /* Meniul devine interactiv când e deschis */
+    opacity: 1;
+  }
+  nav.nav-principala #ch-meniu:checked ~ .meniu li {
+    /* Toate liniile își pornesc propria săgeată în același timp */
+    animation: deschideSageataLinie 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  }
+}
+/* --- LOGICA ANIMATION KEYFRAMES (Săgeată pe fiecare rând în parte) --- */
+@media screen and (max-width: 700px) {
+  @keyframes deschideSageataLinie {
+    0% {
+      clip-path: polygon(0% 0%, 0% 0%, 0% 50%, 0% 100%, 0% 100%);
+    }
+    70% {
+      /* În mișcare, forțăm vârful ascuțit la 100% din lățimea rândului și marginile înapoi la 80% */
+      clip-path: polygon(0% 0%, 80% 0%, 100% 50%, 80% 100%, 0% 100%);
+    }
+    99% {
+      /* Săgeata ajunge la capăt și se uniformizează într-un dreptunghi */
+      clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%);
+    }
+    100% {
+      /* SECRETUL: Dezactivăm complet clip-path ca submeniurile să poată coborî pe hover */
+      clip-path: none;
+    }
+  }
+}
+/* --- 7. STIL PENTRU PRINTARE (Cerința css-printare) --- */
+@media print {
+  /* Punctul 1: Banner-ul să fie afișat în josul primei pagini */
+  /* Presupunem că ai adăugat clasa .banner-proiect în HTML */
+  .banner-proiect {
+    display: block !important;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    border: 4px inset black;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    color: black;
+  }
+  /* Punctul 2: Ascundere elemente media, iframe și link-ul către începutul paginii */
+  img, video, iframe, .container-iframe, .taburi-iframe, figcaption,
+  #link-top, a[href="#"], a[href="#top"] {
+    display: none !important;
+  }
+  /* Punctul 3: Grid-ul paginii va fi afișat ca block */
+  .grid-container {
+    display: block !important;
+  }
+  /* Punctul 4: Toate link-urile din pagină se vor afișa ca text normal */
+  a {
+    text-decoration: none !important;
+    color: black !important;
+    pointer-events: none; /* Inactiv la print */
+  }
+  /* Punctul 5: Heading 1 centrat, meniu listă neordonată sub el și Page Breaks */
+  header h1 {
+    text-align: center !important;
+    margin-bottom: 20px;
+  }
+  nav {
+    background: none !important;
+  }
+  nav .meniu {
+    display: block !important;
+    list-style-type: disc !important; /* Listă neordonată */
+    padding-left: 40px;
+    page-break-after: always; /* Page break după meniu */
+  }
+  nav .meniu li {
+    display: list-item !important;
+    margin-bottom: 5px;
+    color: black;
+  }
+  nav .meniu li span {
+    display: inline !important;
+  }
+  nav .meniu li i {
+    display: none !important;
+  }
+  nav .meniu li { /* Ascundem iconițele FontAwesome */
+    /* Fără subopțiuni conform cerinței */
+  }
+  nav .meniu li .submeniu {
+    display: none !important;
+  }
+  /* Page break înainte de footer */
+  footer {
+    page-break-before: always;
+    background: none !important;
+    color: black !important;
+    border-top: 1px solid #ccc;
+  }
+  /* Punctul 6: Watermark pe fiecare pagină (Nume și Prenume) */
+  body::after {
+    content: "FRATICA \a FLORIAN"; /* Nume pe un rând, prenume sub el */
+    white-space: pre;
+    position: fixed;
+    bottom: 0.5cm;
+    right: 0.5cm;
+    width: 4cm;
+    height: 1cm;
+    border: 3px solid black;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12pt;
+  }
+  /* Punctul 7: Margini asimetrice pentru pagini stânga/dreapta */
+  @page {
+    size: auto;
+    margin: 1cm; /* Margine generală */
+  }
+  @page :left {
+    margin-left: 3cm;
+    margin-right: 1cm;
+  }
+  @page :right {
+    margin-left: 1cm;
+    margin-right: 3cm;
+  }
+}
+/* --- LOGICĂ PENTRU ECRAN (Să nu vedem bannerul pe site) --- */
+.banner-proiect {
+  display: none;
+}/*# sourceMappingURL=still.css.map */

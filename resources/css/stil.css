@@ -6,6 +6,12 @@ body {
     --culoare-accent: #FFD700;
     --culoare-borduri: #9DAAF2;
     --spatiere-celule: 20px;
+    --spatiere-pagina: 5%;
+    --padding-zone: 20px;
+
+    /* Aplicăm spațierea stânga-dreapta */
+    padding: 0 var(--spatiere-pagina);
+    box-sizing: border-box; /* Foarte important pentru a nu apărea scroll orizontal */
 
     background-color: var(--culoare-fundal);
     color: var(--culoare-text);
@@ -15,40 +21,10 @@ body {
     transition: font-size 0.5s ease; /* Tranzitie ceruta */
 }
 
-/* --- 2. HEADER SI NAVIGARE --- */
-header {
-    background-color: var(--culoare-principala);
-    color: white;
-    padding: 1.5rem;
-    border-bottom: 4px solid var(--culoare-accent);
-}
-
-header h1 {
-    color: var(--culoare-accent);
-    margin: 0 0 10px 0;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav ul li ul {
-    display: none; /* Submeniu simplu pentru moment */
-}
-
 /* --- 3. LAYOUT GRID (Design Rudimentar si Responsivitate) --- */
 main {
-    max-width: 1200px;
-    margin: 30px auto; /* Centrare pagina */
+    width: 100%;
+    margin: 30px 0; /* Centrare pagina */
     padding: 0 20px;   /* Aerisire laterala paginii */
 }
 
@@ -59,6 +35,7 @@ main {
 
 /* Desktop */
 @media screen and (min-width: 1025px) {
+    body { --spatiere-pagina: 8%; }
     html { font-size: 18px; }
     .grid-container {
         grid-template-columns: repeat(4, 1fr);
@@ -73,6 +50,7 @@ main {
 
 /* Tableta (Ecran Mediu) */
 @media screen and (min-width: 701px) and (max-width: 1024px) {
+    body { --spatiere-pagina: 4%; }
     html { font-size: 17px; }
     .grid-container {
         grid-template-columns: 1fr 1fr;
@@ -87,6 +65,7 @@ main {
 
 /* Mobil (Ecran Mic) */
 @media screen and (max-width: 700px) {
+    body { --spatiere-pagina: 10px; }
     html { font-size: 15px; }
     .grid-container {
         display: flex;

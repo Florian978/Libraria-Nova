@@ -2,7 +2,7 @@
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Numele Tau">
+    <meta name="author" content="Fratica Florian">
     <meta name="keywords" content="Libraria Nova, carti online, evenimente literare, lectura, romane">
     <meta name="description" content="Libraria Nova - Universul tau literar unde gasesti cele mai noi carti si evenimente.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,24 +15,46 @@
 
     <title>Libraria Nova - Lectura la un alt nivel</title>
     
-    <link rel="stylesheet" type="text/css" href="resources/css/stil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/sass/still.css">
 </head>
 <body>
 
     <header>
         <h1>Libraria Nova</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Acasa</a>
-                    <ul>
-                        <li><a href="#prezentare">Prezentare</a></li>
-                        <li><a href="#evenimente">Evenimente</a></li>
-                        <li><a href="#oferte">Oferte</a></li>
-                        <li><a href="#galerie">Galerie</a></li>
+
+        <nav class="nav-principala">
+            <label for="ch-meniu" class="label-hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+            <input type="checkbox" id="ch-meniu"> 
+            
+            <ul class="meniu">
+                <li>
+                    <a href="index.html" class="prima-optiune">
+                        <i class="fa-solid fa-house"></i> <span>Acasa</span>
+                    </a>
+                </li>
+                
+                <li class="are-submeniu">
+                    <a href="#"><i class="fa-solid fa-book"></i> <span>Carti</span></a>
+                    <ul class="submeniu">
+                        <li><a href="beletristica.html">Beletristica</a></li>
+                        <li><a href="tehnice.html">Carti Tehnice</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Carti</a></li>
-                <li><a href="#">Contact</a></li>
+
+                <li class="are-submeniu">
+                    <a href="#"><i class="fa-solid fa-circle-info"></i> <span>Despre</span></a>
+                    <ul class="submeniu">
+                        <li><a href="#echipa">Echipa Noastra</a></li>
+                        <li><a href="#istoric">Istoric</a></li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <a href="contact.html"><i class="fa-solid fa-envelope"></i> <span>Contact</span></a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -44,7 +66,7 @@
                 <h2>Bun venit la Libraria Nova</h2>
                 <p>Locul unde povestile prind viata in fiecare raft.</p>
             </hgroup>
-            <p>La <b>Libraria Nova</b>, credem ca fiecare carte este o fereastra catre o alta lume. Exploreaza colectia noastra de <b>carti online</b> si vino la <b>evenimente literare</b> de exceptie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>La <b>Libraria Nova</b>, credem ca fiecare carte este o fereastra catre o alta lume. Exploreaza colectia noastra de <b>carti online</b> si vino la <b>evenimente literare</b> de exceptie. <q>Cărțile sunt oglinzi: vezi în ele doar ceea ce ai deja în tine.</q></p>
         </section>
 
         <section class="zona-5">
@@ -73,57 +95,57 @@
             </ul>
         </section>
 
-    <section id="oferte" class="zona-2">
-    <h2>Ofertele Săptămânii</h2>
-    <div class="container-tabel">
-        <table>
-    <colgroup>
-        <col class="coloana-impara">
-        <col class="coloana-para">
-        <col class="coloana-impara">
-        <col class="coloana-para">
-    </colgroup>
-    <caption>Program și Reduceri - Librăria Nova</caption>
-    <thead>
-        <tr>
-            <th>Ziua</th>
-            <th>Program</th>
-            <th>Reducere</th>
-            <th>Categorie</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Luni-Miercuri</td>
-            <td>09:00-20:00</td>
-            <td>10%</td>
-            <td>Ficțiune</td>
-        </tr>
-        <tr>
-            <td>Joi</td>
-            <td rowspan="2">08:00-21:00</td>
-            <td>15%</td>
-            <td>Istorie</td>
-        </tr>
-        <tr>
-            <td>Vineri</td>
-            <td>20%</td>
-            <td>Artă</td>
-        </tr>
-        <tr>
-            <td>Sâmbătă</td>
-            <td>10:00-18:00</td>
-            <td colspan="2">Happy Hour: -5 lei orice carte</td>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="4">Prețurile includ TVA.</td>
-        </tr>
-    </tfoot>
-    </table>
-    </div>
-</section>
+        <section id="oferte" class="zona-2">
+            <h2>Ofertele Săptămânii</h2>
+            <div class="container-tabel">
+                <table>
+                    <colgroup>
+                        <col class="coloana-impara">
+                        <col class="coloana-para">
+                        <col class="coloana-impara">
+                        <col class="coloana-para">
+                    </colgroup>
+                    <caption>Program și Reduceri - Librăria Nova</caption>
+                    <thead>
+                        <tr>
+                            <th>Ziua</th>
+                            <th>Program</th>
+                            <th>Reducere</th>
+                            <th>Categorie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Luni-Miercuri</td>
+                            <td>09:00-20:00</td>
+                            <td>10%</td>
+                            <td>Ficțiune</td>
+                        </tr>
+                        <tr>
+                            <td>Joi</td>
+                            <td rowspan="2">08:00-21:00</td>
+                            <td>15%</td>
+                            <td>Istorie</td>
+                        </tr>
+                        <tr>
+                            <td>Vineri</td>
+                            <td>20%</td>
+                            <td>Artă</td>
+                        </tr>
+                        <tr>
+                            <td>Sâmbătă</td>
+                            <td>10:00-18:00</td>
+                            <td colspan="2">Happy Hour: -5 lei orice carte</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">Prețurile includ <abbr title="Taxa pe Valoare Adăugată">TVA</abbr>.</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
 
         <section class="zona-4">
             <h2>Anunturi Importante</h2>
@@ -133,25 +155,52 @@
         </section>
 
         <section id="galerie" class="zona-8">
-    <h2>Explorați Librăria</h2>
-    
-    <div class="container-iframe">
-        <iframe name="ifr-video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Prezentare Video" allowfullscreen></iframe>
-        
-        <div class="taburi-iframe">
-            <a href="https://www.youtube.com/embed/dQw4w9WgXcQ" target="ifr-video">Prezentare Generală</a>
-            <a href="https://www.youtube.com/embed/3JZ_D3ELwOQ" target="ifr-video">Tur Virtual</a>
-            <a href="https://www.youtube.com/embed/dQw4w9WgXcQ" target="ifr-video">Recenzii Cititori</a>
-        </div>
-    </div>
+            <h2>Explorați Librăria</h2>
+            <div class="container-iframe">
+                <iframe 
+                    name="ifr-video" 
+                    src="https://www.youtube.com/embed/ZNSA0NrDeb4" 
+                    title="Prezentare" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                </iframe>
 
-    <figure style="margin-top: 20px;">
-        <picture>
-            <source srcset="resources/imagini/librarie-mic.jpg" media="(max-width: 600px)">
-            <img src="resources/imagini/librarie-mare.jpg" alt="Interior Libraria Nova">
-        </picture>
-    </figure>
-</section>
+                <div class="taburi-iframe">
+                    <a href="https://www.youtube.com/embed/ZNSA0NrDeb4" target="ifr-video">Prezentare Generală</a>
+                    <a href="https://www.youtube.com/embed/_-_ZPDUbrKc" target="ifr-video">Tur Virtual</a>
+                    <a href="https://www.youtube.com/embed/aA8JTwcC_Ug" target="ifr-video">Recenzii Cititori</a>
+                </div>
+            </div>
+
+            <figure style="margin-top: 20px;">
+                <a href="resources/imagini/librarie-mare.jpg">
+                    <picture>
+                        <source srcset="resources/imagini/librarie-mic.jpg" media="(max-width: 600px)">
+                        <img src="resources/imagini/librarie-mare.jpg" alt="Interior Libraria Nova">
+                    </picture>
+                </a>
+                <figcaption>Click pe imagine pentru versiunea completă.</figcaption>
+            </figure>
+        </section>
+
+        <section id="resurse" class="zona-9">
+            <h3>Resurse și Utilitare</h3>
+            <p>Partener cultural: <a href="https://www.humanitas.ro" target="_blank">Humanitas</a></p>
+            
+            <p>Referință lungă: <br>
+                <a href="https://www.wdl.org/en/search/?q=books#referinta">
+                    https://www.wdl.org/<wbr>en/<wbr>search/<wbr>?q=books#referinta
+                </a>
+            </p>
+
+            <p>Documentație: 
+                <a href="resources/imagini/librarie-mare.jpg" download="ghid_libraria_nova.jpg">
+                    Descarcă Ghidul Cititorului (Imagine)
+                </a>
+            </p>
+        </section>
 
     </main>
 
@@ -162,13 +211,14 @@
             <a href="https://wa.me/40722000000">WhatsApp</a><br>
             Locatie: <a href="https://maps.google.com" target="_blank">Strada Academiei, nr. 14, Bucuresti</a>
         </address>
-        <p><small>&copy; 2026 Libraria Nova. Creat la: <time datetime="2026-04-17">17 Aprilie 2026</time></small></p>
-      
+        
+        <p class="banner-proiect">Acesta este un proiect școlar!</p>
+        
+        <p><small>© 2026 Libraria Nova. Creat la: <time datetime="2026-04-17">17 Aprilie 2026</time></small></p>
     </footer>
 
     <a href="#" id="link-top" title="Revino la începutul paginii">
-    <div id="triunghi-container">
-        &#5123; </div>
+        <div id="triunghi-container">▲</div>
     </a>
 
 </body>
